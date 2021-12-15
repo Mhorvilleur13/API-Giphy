@@ -1,9 +1,9 @@
 const key = 'qXA4kusyCMAcAkmUDWWLaBCCSJf7e044';
 const url = `https://api.giphy.com/v1/gifs/random?api_key=${key}`;
-const button = document.getElementById('button');
-const giphSection = document.getElementById('giph-display');
+const form = document.getElementById('form');
+const giphSection = document.getElementById('giph-display1');
 
-const getGiph = async () => {
+const getRandomGiph = async () => {
     try {
         const response = await fetch(url);
         if (response.ok) {
@@ -28,13 +28,14 @@ const renderGiph = (src) => {
     giphSection.append(giphDiv);
 }
 
-const executeSearch = async () => {
+const executeSearch = async (event) => {
+    event.preventDefault();
     giphSection.innerHTML = '';
     // getGiph().then(src => renderGiph(src));
-    const getGiphy = await getGiph();
+    const getGiphy = await getRandomGiph();
     renderGiph(getGiphy);
 
 }
 
-button.addEventListener('click', executeSearch);
+form.addEventListener('submit', executeSearch);
 
