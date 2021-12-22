@@ -2,7 +2,7 @@ const key = 'qXA4kusyCMAcAkmUDWWLaBCCSJf7e044';
 const url = `https://api.giphy.com/v1/gifs/random?api_key=${key}`;
 const form = document.getElementById('form');
 const giphSection = document.getElementById('giph-display1');
-
+// git test
 const getRandomGiph = async () => {
     try {
         const response = await fetch(url);
